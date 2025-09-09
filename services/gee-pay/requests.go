@@ -58,6 +58,10 @@ const (
 )
 
 func GeePayGenerateToken() (*GeePayAuthResponse, error) {
+	headers := map[string]string{
+		HeaderContentType: "application/json",
+		HeaderAccept:      "application/json",
+	}
 	data := GeePayAuthRequest{
 		ClientID:     os.Getenv("GEE_PAY_CLIENT_ID"),
 		ClientSecret: os.Getenv("GEE_PAY_CLIENT_SECRET"),
@@ -71,7 +75,7 @@ func GeePayGenerateToken() (*GeePayAuthResponse, error) {
 
 	log.Printf("Body: %s", string(body))
 	log.Printf("URL: %s", os.Getenv("GEE_PAY_AUTH_URL"))
-	response, statusCode, err := services.SendRequest("POST", url, nil, body)
+	response, statusCode, err := services.SendRequest("POST", url, headers, body)
 	if err != nil {
 		return nil, err
 	}
@@ -157,12 +161,7 @@ func GeePayTransactionEnquiry(transactionRef string) (*TransactionStatusResponse
 		HeaderAuthorization: "Bearer " + token.AccessToken,
 	}
 
-	body, err := json.Marshal(headers)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal request body: %w", err)
-	}
-
-	response, statusCode, err := services.SendRequest("GET", url, headers, body)
+	response, statusCode, err := services.SendRequest("GET", url, headers, nil)
 	if err != nil {
 		return nil, fmt.Errorf("failed to send request: %w", err)
 	}
