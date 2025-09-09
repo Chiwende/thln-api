@@ -31,6 +31,7 @@ type KYCErrorResponse struct {
 
 func KYCService(phone string) (*KYCSuccessResponse, *KYCErrorResponse, error) {
 	url := os.Getenv("GEE_PAY_KYC_URL") + phone
+	log.Println("URL" + url)
 	token, err := GeePayGenerateToken()
 	if err != nil {
 		log.Println("Error generating token: %w", err)
