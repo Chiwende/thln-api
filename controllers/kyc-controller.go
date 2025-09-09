@@ -10,6 +10,7 @@ import (
 
 func KYCController(c *gin.Context) {
 	phone := c.Params.ByName("phone")
+	log.Println("Phone:", phone)
 	response, errorResponse, err := services.KYCService(phone)
 	log.Println("Response:", response)
 	log.Println("Error response:", errorResponse)
