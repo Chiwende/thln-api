@@ -41,7 +41,7 @@ func KYCService(phone string) (*KYCSuccessResponse, *KYCErrorResponse, error) {
 		"Authorization": "Bearer " + token.AccessToken,
 		"Content-Type":  "application/json",
 		"Accept":        "application/json",
-		"X-Client-ID":   os.Getenv("GEE_PAY_CLIENT_ID"),
+		HeaderClientID:  os.Getenv("GEE_PAY_CLIENT_ID"),
 	}
 	response, statusCode, err := services.SendRequest("GET", url, headers, nil)
 	if err != nil {
