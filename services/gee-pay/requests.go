@@ -89,6 +89,7 @@ func GeePayGenerateToken() (*GeePayAuthResponse, error) {
 	if err != nil {
 		return nil, err
 	}
+	log.Println("Auth response:", authResponse)
 
 	return &authResponse, nil
 }
