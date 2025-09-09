@@ -157,7 +157,12 @@ func GeePayTransactionEnquiry(transactionRef string) (*TransactionStatusResponse
 		HeaderAuthorization: "Bearer " + token.AccessToken,
 	}
 
-	response, statusCode, err := services.SendRequest("GET", url, headers, nil)
+	body, err := json.Marshal(headers)
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal request body: %w", err)
+	}
+
+	response, statusCode, err := services.SendRequest("GET", url, headers, body)
 	if err != nil {
 		return nil, fmt.Errorf("failed to send request: %w", err)
 	}

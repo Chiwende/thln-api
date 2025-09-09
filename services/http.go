@@ -33,6 +33,8 @@ func SendRequest(method, url string, headers map[string]string, body []byte) ([]
 	}
 	defer resp.Body.Close()
 
+	log.Println("Response:", resp)
+
 	// Read response body
 	respBody, err := io.ReadAll(resp.Body)
 	if err != nil {
