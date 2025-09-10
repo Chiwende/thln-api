@@ -10,6 +10,10 @@ import (
 )
 
 func SendRequest(method, url string, headers map[string]string, body []byte) ([]byte, int, error) {
+	log.Println("Sending request to: %s", url)
+	log.Println("Method: %s", method)
+	log.Println("Headers: %v", headers)
+	log.Println("Body: %v", string(body))
 	// Create request with optional body
 	req, err := http.NewRequest(method, url, bytes.NewBuffer(body))
 	if err != nil {
