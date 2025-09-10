@@ -1,5 +1,5 @@
 ### Collection Request
-POST http://localhost:9080/collection
+POST https://muyanda.qinsightstech.com/collection
 
 {
     "amount": 100,

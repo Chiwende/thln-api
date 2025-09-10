@@ -25,5 +25,6 @@ func main() {
 	router := gin.Default()
 	routes.RegisterPaymentRoutes(router)
 	routes.RegisterKYCRoutes(router)
+	routes.RegisterCallbackRoutes(router)
 	router.Run(":9080")
 }
