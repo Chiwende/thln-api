@@ -27,7 +27,7 @@ type GeePayCollectionRequest struct {
 }
 
 type CollectionResponse struct {
-	Code string `json:"code"`
+	Code int `json:"code"`
 	Data struct {
 		ExternalReference    string `json:"external_reference"`
 		TransactionReference string `json:"transaction_reference"`
