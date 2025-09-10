@@ -27,6 +27,7 @@ func GeePayCollection(c *gin.Context) {
 func GeePayTransactionStatus(c *gin.Context) {
 	transactionRef := c.Query("transaction_ref")
 	log.Println("Transaction reference:", transactionRef)
+
 	if transactionRef == "" {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "transaction_ref query parameter is required"})
 		return

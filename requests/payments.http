@@ -7,7 +7,7 @@ POST https://muyanda.qinsightstech.com/collection
 }
 
 ### Transaction status
-GET http://localhost:9080/transaction-status?transaction_ref=4f9f9360-846c-459f-a1c6-c518913e68fa
+GET https://muyanda.qinsightstech.com/transaction-status?transaction_ref=4f9f9360-846c-459f-a1c6-c518913e68fa
 
 ### KYC Verification
 GET http://localhost:9080/kyc/260974035672

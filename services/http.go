@@ -46,5 +46,9 @@ func SendRequest(method, url string, headers map[string]string, body []byte) ([]
 		return nil, resp.StatusCode, fmt.Errorf("failed to read response body: %w", err)
 	}
 
+	// Log the actual JSON response body for debugging
+	log.Printf("Response Status: %d", resp.StatusCode)
+	log.Printf("Response Body: %s", string(respBody))
+
 	return respBody, resp.StatusCode, nil
 }
