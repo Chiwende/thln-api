@@ -37,7 +37,7 @@ type CollectionResponse struct {
 }
 
 type TransactionStatusResponse struct {
-	Code string `json:"code"`
+	Code int `json:"code"`
 	Data struct {
 		Amount               string `json:"amount"`
 		Status               string `json:"status"`
