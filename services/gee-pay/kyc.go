@@ -9,7 +9,7 @@ import (
 )
 
 type KYCSuccessResponse struct {
-	Code    string `json:"code"`
+	Code    int    `json:"code"`
 	Status  string `json:"status"`
 	Message string `json:"message"`
 	Data    struct {
