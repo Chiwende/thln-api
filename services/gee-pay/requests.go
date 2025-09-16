@@ -21,6 +21,12 @@ type GeePayAuthResponse struct {
 	ExpiresIn   int    `json:"expires_in"`
 }
 
+type QCollectionRequest struct {
+	TransactionReference string `json:"transaction_reference"`
+	Amount               int    `json:"amount"`
+	PhoneNumber          string `json:"phone_number"`
+}
+
 type GeePayCollectionRequest struct {
 	Amount      int    `json:"amount"`
 	PhoneNumber string `json:"phone_number"`
@@ -94,14 +100,16 @@ func GeePayGenerateToken() (*GeePayAuthResponse, error) {
 	return &authResponse, nil
 }
 
-func GeePayCollection(data GeePayCollectionRequest) (*CollectionResponse, error) {
+func GeePayCollection(data QCollectionRequest) (*CollectionResponse, error) {
 	// Marshal request body
-	transactionRef, err := services.GenerateUUIDv4()
-	if err != nil {
-		return nil, fmt.Errorf("failed to generate transaction reference: %w", err)
+	transactionRef := data.TransactionReference
+
+	request := GeePayCollectionRequest{
+		Amount:      data.Amount,
+		PhoneNumber: data.PhoneNumber,
 	}
 
-	body, err := json.Marshal(data)
+	body, err := json.Marshal(request)
 	if err != nil {
 		return nil, fmt.Errorf("failed to marshal request body: %w", err)
 	}

@@ -2,12 +2,12 @@
 POST https://muyanda.qinsightstech.com/collection
 
 {
-    "amount": 100,
+    "amount": 1,
     "phone_number": "260974035672"
 }
 
 ### Transaction status
-GET https://muyanda.qinsightstech.com/transaction-status?transaction_ref=f404fd6a-f385-4340-97eb-02a3fa179b56
+GET https://muyanda.qinsightstech.com/transaction-status?transaction_ref=9c62ed05-822d-4a52-99e7-6de04d303feb
 
 ### KYC Verification
 GET https://muyanda.qinsightstech.com/kyc/260974035672
