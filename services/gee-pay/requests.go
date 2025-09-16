@@ -22,7 +22,7 @@ type GeePayAuthResponse struct {
 }
 
 type QCollectionRequest struct {
-	TransactionReference string `json:"transaction_reference"`
+	TransactionReference string `json:" "`
 	Amount               int    `json:"amount"`
 	PhoneNumber          string `json:"phone_number"`
 }
