@@ -10,6 +10,7 @@ import (
 
 func GeePayCollection(c *gin.Context) {
 	var request services.QCollectionRequest
+	log.Println("Request:", request)
 	if err := c.ShouldBindJSON(&request); err != nil {
 		log.Println("Error binding JSON:", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})

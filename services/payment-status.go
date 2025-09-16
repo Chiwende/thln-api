@@ -31,7 +31,7 @@ func UpdatePaymentStatus(orderID, paymentStatus, transactionID, notes string) (*
 	// Get the API base URL from environment variables
 	apiBaseURL := os.Getenv("API_BASE_URL")
 	if apiBaseURL == "" {
-		apiBaseURL = "https://your-domain.com" // fallback URL
+		apiBaseURL = "https://thelambnationchurch.com/" // fallback URL
 	}
 
 	// Construct the full URL
