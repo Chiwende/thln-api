@@ -28,8 +28,9 @@ type QCollectionRequest struct {
 }
 
 type GeePayCollectionRequest struct {
-	Amount      int    `json:"amount"`
-	PhoneNumber string `json:"phone_number"`
+	TransactionReference string `json:"transaction_reference"`
+	Amount               int    `json:"amount"`
+	PhoneNumber          string `json:"phone_number"`
 }
 
 type CollectionResponse struct {

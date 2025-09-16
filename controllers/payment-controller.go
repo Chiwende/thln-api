@@ -15,7 +15,14 @@ func GeePayCollection(c *gin.Context) {
 		return
 	}
 
-	response, err := services.GeePayCollection(request)
+	// Convert GeePayCollectionRequest to QCollectionRequest
+	qRequest := services.QCollectionRequest{
+		TransactionReference: request.TransactionReference,
+		Amount:               request.Amount,
+		PhoneNumber:          request.PhoneNumber,
+	}
+
+	response, err := services.GeePayCollection(qRequest)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
