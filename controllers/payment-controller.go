@@ -9,21 +9,14 @@ import (
 )
 
 func GeePayCollection(c *gin.Context) {
-	var request services.GeePayCollectionRequest
+	var request services.QCollectionRequest
 	if err := c.ShouldBindJSON(&request); err != nil {
+		log.Println("Error binding JSON:", err)
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	// Convert GeePayCollectionRequest to QCollectionRequest
-	qRequest := services.QCollectionRequest{
-		TransactionReference: request.TransactionReference,
-		Amount:               request.Amount,
-		PhoneNumber:          request.PhoneNumber,
-	}
-	log.Println("QRequest:", qRequest)
-
-	response, err := services.GeePayCollection(qRequest)
+	response, err := services.GeePayCollection(request)
 	log.Println("Response:", response)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})

@@ -7,7 +7,7 @@ POST https://muyanda.qinsightstech.com/collection
 }
 
 ### Transaction status
-GET https://muyanda.qinsightstech.com/transaction-status?transaction_ref=9c62ed05-822d-4a52-99e7-6de04d303feb
+GET https://muyanda.qinsightstech.com/transaction-status?transaction_ref=cmfmb9e4z00002jgxigy37et4
 
 ### KYC Verification
 GET https://muyanda.qinsightstech.com/kyc/260974035672
